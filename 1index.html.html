@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Forest Hills Addams Family Musical Production - School Project</title>
+
+  <!-- Professional fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Inter', sans-serif;
+      background: #ffffff;
+      color: #111;
+    }
+
+    h1, h2 {
+      font-family: 'Playfair Display', serif;
+    }
+
+    header {
+      position: relative;
+      background: #f5f5f5;
+      padding: 50px 20px;
+      text-align: center;
+      border-bottom: 1px solid #ddd;
+    }
+
+    header h1 {
+      letter-spacing: 2px;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      color: #555;
+      margin-top: 10px;
+    }
+
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      background: #ffffff;
+      padding: 15px;
+      border-bottom: 1px solid #ddd;
+    }
+
+    nav a {
+      color: #333;
+      text-decoration: none;
+      font-weight: 600;
+      transition: 0.2s;
+    }
+
+    nav a:hover {
+      color: #000;
+    }
+
+    .ticket-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 30px;
+      font-size: 15px;
+      font-weight: 600;
+      background: #111;
+      color: #fff;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .ticket-btn:hover {
+      background: #333;
+    }
+
+    .container {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+      text-align: center;
+    }
+
+    .container h2 {
+      margin-bottom: 10px;
+      font-size: 1.8rem;
+    }
+
+    .container p {
+      color: #555;
+      line-height: 1.6;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-top: 30px;
+    }
+
+    .card {
+      background: #fafafa;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.08);
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+    }
+
+    .card img {
+      width: 100%;
+      display: block;
+    }
+
+    .card p {
+      padding: 15px;
+      font-size: 0.9rem;
+      color: #444;
+    }
+
+    footer {
+      background: #f5f5f5;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
+      border-top: 1px solid #ddd;
+      font-size: 0.85rem;
+      color: #777;
+    }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(15px);
+      animation: fadeIn 1.2s ease forwards;
+    }
+
+    @keyframes fadeIn {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+  
+    /* Spiders */
+    .spiders {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      pointer-events: none;
+    }
+
+    .spider {
+      position: absolute;
+      top: 0;
+      width: 2px;
+      height: 120px;
+      background: #ccc;
+      display: flex;
+      justify-content: center;
+    }
+
+    /* Spider body */
+    .spider::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      width: 12px;
+      height: 12px;
+      background: #000;
+      border-radius: 50%;
+    }
+
+    /* Spider legs */
+    .spider::before {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      width: 20px;
+      height: 10px;
+      border-top: 2px solid #000;
+      border-bottom: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    .spider {
+      animation: swing 3s ease-in-out infinite;
+      transition: transform 0.3s ease;
+    }
+
+    /* Hover makes spiders drop */
+    header:hover .spider {
+      transform: translateY(60px);
+    }
+
+    @keyframes swing {
+      0% { transform: translateY(0) rotate(0deg); }
+      50% { transform: translateY(20px) rotate(5deg); }
+      100% { transform: translateY(0) rotate(0deg); }
+    }
+
+    /* Corner webs */
+    .web {
+      position: fixed;
+      width: 120px;
+      opacity: 0.15;
+      pointer-events: none;
+    }
+
+    .web.left {
+      top: 0;
+      left: 0;
+    }
+
+    .web.right {
+      top: 0;
+      right: 0;
+      transform: scaleX(-1);
+    }
+
+  
+    /* Logo */
+    .logo-container {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+    }
+
+    .logo {
+      height: 50px;
+      object-fit: contain;
+    }
+
+  </style>
+</head>
+<body>
+
+<!-- Corner spider webs -->
+<img src="https://i.imgur.com/6X4R6bP.png" class="web left">
+<img src="https://i.imgur.com/6X4R6bP.png" class="web right">
+
+<header>
+  <div class="logo-container">
+    <img src="https://cdn.discordapp.com/attachments/827739063938187264/1492421375154192484/image.png?ex=69db4537&is=69d9f3b7&hm=e7d3365a81a81149428ac3f7770fc225393fb3bfc1d945cfa6a0a9726d4bd1ad&" alt="Logo" class="logo">
+  </div>
+  <h1>The Addams Family</h1>
+  <p class="fade-in">Forest Hills High School</p>
+
+  <a href="https://events.ticketleap.com/events/fhhs-0/the-addams-family" target="_blank" class="ticket-btn">Buy Tickets</a>
+  <!-- Hanging spiders -->
+  <div class="spiders">
+    <div class="spider" style="left:15%; animation-delay:0s;"></div>
+    <div class="spider" style="left:35%; animation-delay:1s;"></div>
+    <div class="spider" style="left:60%; animation-delay:0.5s;"></div>
+    <div class="spider" style="left:80%; animation-delay:1.5s;"></div>
+  </div>
+</header>
+
+<nav>
+  <a href="#">Home</a>
+  <a href="#gallery">Gallery</a>
+  <a href="#about">About</a>
+</nav>
+
+<div class="container fade-in" id="about">
+  <h2>About the Project</h2>
+  <p>
+    This website showcases our school project inspired by The Addams Family.
+    Here you can explore scenes, characters, and highlights from our performance.
+  </p>
+</div>
+
+<div class="container" id="gallery">
+  <h2 class="fade-in">Gallery</h2>
+  <div class="gallery">
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Scene+1">
+      <p>Scene 1</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Scene+2">
+      <p>Scene 2</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Scene+3">
+      <p>Scene 3</p>
+    </div>
+
+    <div class="card">
+      <img src="https://via.placeholder.com/300x200?text=Scene+4">
+      <p>Scene 4</p>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <p>© 2026 School Project - The Addams Family</p>
+</footer>
+
+</body>
+</html>
